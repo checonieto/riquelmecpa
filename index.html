@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riquelme CPA | Professional Accounting Services in Canada</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0a3d62;
+            --primary-dark: #082f4d;
+            --secondary-color: #57cc99;
+            --accent-color: #ff7e5f;
+            --light-color: #f8f9fa;
+            --dark-color: #1e272e;
+            --gray-color: #718096;
+            --light-gray: #e2e8f0;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .logo-icon {
+            background-color: var(--secondary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .logo-text span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links a:hover:after, .nav-links a.active:after {
+            width: 100%;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.9)), url('images/heroriquelme.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0 60px;
+            color: white;
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            margin-top: 70px;
+        }
+        
+        /* Fallback background in case image doesn't load */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 700px;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-dark);
+            padding: 12px 30px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        /* Stats Counter UNDER Hero */
+        .stats-counter {
+            background-color: white;
+            color: var(--primary-dark);
+            padding: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray-color);
+        }
+        
+        /* Services Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray-color);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(10, 61, 98, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .service-icon {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        /* About Section */
+        .about {
+            background-color: #f8f9fa;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        /* Team Section */
+        .team {
+            background-color: white;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            text-align: center;
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid var(--light-color);
+            box-shadow: var(--shadow);
+        }
+        
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Testimonials Carousel - FIXED */
+        .testimonials {
+            background-color: var(--primary-color);
+            color: white;
+            overflow: hidden;
+        }
+        
+        .testimonials .section-title h2,
+        .testimonials .section-title p {
+            color: white;
+        }
+        
+        .carousel-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-wrapper {
+            width: 100%;
+            overflow: hidden;
+            border-radius: var(--radius);
+        }
+        
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            padding: 0;
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            margin: 0 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            margin-top: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .carousel-dot.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .carousel-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .carousel-btn.prev {
+            left: 10px;
+        }
+        
+        .carousel-btn.next {
+            right: 10px;
+        }
+        
+        /* Contact & Map Section */
+        .contact-map-section {
+            padding: 80px 0;
+        }
+        
+        .contact-map-container {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: var(--gray-color);
+        }
+        
+        .contact-details i {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(10, 61, 98, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+        }
+        
+        .map-container {
+            flex: 2;
+            min-width: 300px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+        }
+        
+        #map {
+            width: 100%;
+            height: 100%;
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-color);
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            max-width: 700px;
+            margin: 40px auto 0;
+            background-color: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius);
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(10, 61, 98, 0.1);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Image Placeholder Styles */
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+            color: var(--gray-color);
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .image-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+            }
+            
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .carousel-btn.prev {
+                left: 5px;
+            }
+            
+            .carousel-btn.next {
+                right: 5px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 0;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 15px 0;
+                width: 100%;
+            }
+            
+            .nav-links a:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+            
+            .hero {
+                padding: 80px 0 40px;
+                text-align: center;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .contact-map-container {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .service-card {
+                padding: 30px 20px;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+            
+            .carousel-btn {
+                display: none;
+            }
+            
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+        }
+        
+        /* Color Change Animation */
+        .color-change {
+            animation: colorShift 0.5s ease;
+        }
+        
+        @keyframes colorShift {
+            0% { color: var(--primary-color); }
+            50% { color: var(--accent-color); }
+            100% { color: var(--primary-color); }
+        }
+        
+        /* Countup Animation */
+        .countup {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="logo-text">Riquelme<span>CPA</span></div>
+            </a>
+            
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="active" data-target="hero">Home</a></li>
+                <li><a href="#" data-target="services">Services</a></li>
+                <li><a href="#" data-target="about">About</a></li>
+                <li><a href="#" data-target="team">Team</a></li>
+                <li><a href="#" data-target="testimonials">Testimonials</a></li>
+                <li><a href="#" data-target="contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Expert CPA Services in Canada</h1>
+                <p>Riquelme CPA provides comprehensive accounting, tax planning, and financial advisory services for individuals and businesses across Canada. Trust our expertise for your financial success.</p>
+                <a href="#contact" class="cta-button">Schedule a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Counter UNDER Hero -->
+    <section class="stats-counter">
+        <div class="container stats-container">
+            <div class="stat-item">
+                <div class="stat-number" id="clientsCounter">0</div>
+                <div class="stat-label">Satisfied Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="yearsCounter">0</div>
+                <div class="stat-label">Years of Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="taxDeadlineCounter">0</div>
+                <div class="stat-label">Days Until Tax Deadline</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Professional Services</h2>
+                <p>We offer a full range of accounting and financial services tailored to meet your specific needs.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3>Tax Planning & Preparation</h3>
+                    <p>Comprehensive tax planning strategies and accurate preparation for individuals and corporations.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Financial Advisory</h3>
+                    <p>Strategic financial advice to help you make informed decisions for business growth and wealth management.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Audit & Assurance</h3>
+                    <p>Reliable audit services to ensure compliance and provide stakeholders with confidence in your financial statements.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-business-time"></i>
+                    </div>
+                    <h3>Business Consulting</h3>
+                    <p>Expert guidance on business structure, process optimization, and strategic planning for sustainable growth.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Bookkeeping</h3>
+                    <p>Accurate and timely bookkeeping services to keep your financial records organized and up-to-date.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Personal Financial Planning</h3>
+                    <p>Tailored financial plans to help individuals achieve their long-term financial goals and security.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Riquelme CPA</h2>
+                <p>With over <span id="yearsCounter2">15</span> years of experience in the Canadian financial landscape, Riquelme CPA has established itself as a trusted partner for individuals and businesses seeking expert accounting solutions.</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Professional Environment</h2>
+                    <p>Our team of certified professionals stays current with the latest tax laws and accounting standards, ensuring our clients receive accurate, compliant, and strategic financial guidance.</p>
+                    <p>We believe in building long-term relationships with our clients, offering personalized service that goes beyond number crunching to provide real business insights and value.</p>
+                    <p>Our modern office is designed to provide a comfortable and professional environment for consultations, with state-of-the-art technology to ensure efficient and secure handling of your financial matters.</p>
+                    <a href="#contact" class="cta-button" style="margin-top: 20px;">Visit Our Office</a>
+                </div>
+                <div class="about-image">
+                    <div id="aboutImageContainer">
+                        <!-- Image will be loaded here dynamically -->
+                        <div class="image-placeholder" id="aboutPlaceholder">
+                            <i class="fas fa-building"></i>
+                            <p><strong>Office Interior Image</strong></p>
+                            <p style="font-size: 0.8rem;">Add your image as: images/office-interior.jpg</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section team" id="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet Our Team</h2>
+                <p>Our experienced team of CPAs and financial advisors is dedicated to your success.</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo">
+                        <div class="image-placeholder" id="teamPlaceholder">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                    </div>
+                    <h3>Carlos Riquelme, CPA</h3>
+                    <p>Founder & Senior Accountant</p>
+                    <p style="color: var(--gray-color); font-size: 0.9rem; margin-top: 10px;">15+ years of experience in corporate taxation and financial planning.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo">
+                        <div class="image-placeholder">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                    </div>
+                    <h3>Sarah Johnson, CPA</h3>
+                    <p>Tax Specialist</p>
+                    <p style="color: var(--gray-color); font-size: 0.9rem; margin-top: 10px;">Expert in personal and small business taxation with 10+ years experience.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo">
+                        <div class="image-placeholder">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                    </div>
+                    <h3>Michael Chen</h3>
+                    <p>Financial Advisor</p>
+                    <p style="color: var(--gray-color); font-size: 0.9rem; margin-top: 10px;">Specializes in investment planning and wealth management strategies.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo">
+                        <div class="image-placeholder">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                    </div>
+                    <h3>Lisa Rodriguez</h3>
+                    <p>Audit Manager</p>
+                    <p style="color: var(--gray-color); font-size: 0.9rem; margin-top: 10px;">Leads our audit and assurance division with 12+ years of experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section - FIXED CAROUSEL -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>See what our clients have to say about our professional accounting services.</p>
+            </div>
+            
+            <div class="carousel-container">
+                <button class="carousel-btn prev" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="carousel-wrapper">
+                    <div class="carousel-slides" id="carouselSlides">
+                        <div class="carousel-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-text">
+                                    "Riquelme CPA transformed our business finances. Their tax planning strategy saved us over 30% compared to our previous accountant. The team is responsive, knowledgeable, and truly cares about our success."
+                                </div>
+                                <div class="testimonial-author">- Sarah Johnson, Small Business Owner</div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-text">
+                                    "As a freelance professional, I needed help with my complex tax situation. The team at Riquelme CPA was knowledgeable, responsive, and made the process stress-free. I've recommended them to all my colleagues."
+                                </div>
+                                <div class="testimonial-author">- Michael Chen, IT Consultant</div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-text">
+                                    "We've been with Riquelme CPA for 5 years now. Their business consulting services helped us scale efficiently while maintaining financial health. Truly partners in our success. Couldn't ask for better financial guidance."
+                                </div>
+                                <div class="testimonial-author">- Rodriguez Family Restaurant</div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-text">
+                                    "After a bad experience with another firm, switching to Riquelme CPA was the best financial decision I made. They handled my corporate and personal taxes with precision and saved me thousands."
+                                </div>
+                                <div class="testimonial-author">- David Wilson, Tech Startup Founder</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-btn next" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="carousel-nav" id="carouselNav">
+                    <div class="carousel-dot active" data-slide="0"></div>
+                    <div class="carousel-dot" data-slide="1"></div>
+                    <div class="carousel-dot" data-slide="2"></div>
+                    <div class="carousel-dot" data-slide="3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Map Section -->
+    <section class="section contact-map-section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our team to discuss your accounting and financial needs.</p>
+            </div>
+            
+            <div class="contact-map-container">
+                <div class="contact-info">
+                    <h3>Our Office</h3>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Address</strong><br>
+                                123 Financial District, Toronto, ON M5X 1A1
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Phone</strong><br>
+                                (416) 555-7890
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                info@riquelmecpa.com
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Business Hours</strong><br>
+                                Mon-Fri: 9:00 AM - 5:00 PM<br>
+                                Sat: 10:00 AM - 2:00 PM (Tax Season)
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <div id="map">
+                        <!-- Google Maps will be loaded here -->
+                        <div style="text-align: center; padding: 20px;">
+                            <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 15px; color: var(--primary-color);"></i>
+                            <h3>Toronto Office</h3>
+                            <p>123 Financial District, Toronto, ON</p>
+                            <p>M5X 1A1, Canada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <select id="service" name="service">
+                            <option value="">Select a service</option>
+                            <option value="tax">Tax Planning & Preparation</option>
+                            <option value="financial">Financial Advisory</option>
+                            <option value="audit">Audit & Assurance</option>
+                            <option value="consulting">Business Consulting</option>
+                            <option value="bookkeeping">Bookkeeping</option>
+                            <option value="personal">Personal Financial Planning</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Riquelme CPA</h3>
+                    <p>Professional accounting and financial services for individuals and businesses across Canada. Your trusted partner for financial success.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Tax Deadlines</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><span id="taxDeadlineText">Personal Tax: April 30, 2026</span></a></li>
+                        <li><a href="#">Corporate Tax: June 30, 2026</a></li>
+                        <li><a href="#">Tax Planning</a></li>
+                        <li><a href="#">Tax Extensions</a></li>
+                        <li><a href="#">Tax Updates 2026</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Riquelme CPA. All rights reserved. CPA services across Canada.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Image Loading Function
+        function loadImages() {
+            console.log("Checking for images...");
+            
+            // Try to load hero image
+            const heroImg = new Image();
+            heroImg.src = 'images/heroriquelme.jpg';
+            heroImg.onload = function() {
+                console.log("Hero image loaded successfully");
+                // Update hero background
+                const heroSection = document.querySelector('.hero');
+                heroSection.style.backgroundImage = `linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.9)), url('images/heroriquelme.jpg')`;
+            };
+            heroImg.onerror = function() {
+                console.log("Hero image not found, using fallback");
+            };
+            
+            // Try to load about image
+            const aboutImg = new Image();
+            aboutImg.src = 'images/office-interior.jpg';
+            aboutImg.onload = function() {
+                console.log("About image loaded successfully");
+                // Update about section
+                const aboutContainer = document.getElementById('aboutImageContainer');
+                aboutContainer.innerHTML = `<img src="images/office-interior.jpg" alt="Riquelme CPA Office Interior">`;
+            };
+            aboutImg.onerror = function() {
+                console.log("About image not found, keeping placeholder");
+            };
+            
+            // Try to load team photo
+            const teamImg = new Image();
+            teamImg.src = 'images/team-photo.jpg';
+            teamImg.onload = function() {
+                console.log("Team photo loaded successfully");
+                // Update team photo
+                const teamPlaceholder = document.getElementById('teamPlaceholder');
+                if (teamPlaceholder) {
+                    teamPlaceholder.parentElement.innerHTML = `<img src="images/team-photo.jpg" alt="Riquelme CPA Team">`;
+                }
+            };
+            teamImg.onerror = function() {
+                console.log("Team photo not found, keeping placeholder");
+            };
+        }
+        
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileToggle.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth scrolling for navigation links
+        const navAnchors = document.querySelectorAll('.nav-links a');
+        
+        navAnchors.forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+                
+                // Get target section
+                const targetId = this.getAttribute('data-target');
+                const targetSection = document.getElementById(targetId);
+                
+                // Scroll to section
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Add color change animation to clicked link
+                this.classList.add('color-change');
+                setTimeout(() => {
+                    this.classList.remove('color-change');
+                }, 500);
+                
+                // Update active link
+                navAnchors.forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Counters Animation
+        function animateCounter(elementId, targetValue, suffix = '') {
+            const element = document.getElementById(elementId);
+            const duration = 2000; // 2 seconds
+            const increment = targetValue / (duration / 16); // 60fps
+            
+            let currentValue = 0;
+            const timer = setInterval(() => {
+                currentValue += increment;
+                if (currentValue >= targetValue) {
+                    currentValue = targetValue;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(currentValue) + suffix;
+            }, 16);
+        }
+        
+        // Calculate days until tax deadline (April 30, 2026)
+        function calculateDaysUntilDeadline() {
+            const deadline = new Date('April 30, 2026');
+            const today = new Date();
+            const difference = deadline - today;
+            return Math.ceil(difference / (1000 * 60 * 60 * 24));
+        }
+        
+        // Initialize counters when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start counter animations
+            animateCounter('clientsCounter', 3000, '+');
+            animateCounter('yearsCounter', 15, '+');
+            
+            // Calculate and animate tax deadline counter
+            const daysUntilDeadline = calculateDaysUntilDeadline();
+            animateCounter('taxDeadlineCounter', daysUntilDeadline);
+            
+            // Update the about section years counter
+            document.getElementById('yearsCounter2').textContent = '15+';
+            
+            // Update tax deadline text in footer
+            const taxDeadlineText = document.getElementById('taxDeadlineText');
+            if (taxDeadlineText) {
+                taxDeadlineText.textContent = `Personal Tax: April 30, 2026 (${daysUntilDeadline} days left)`;
+            }
+            
+            // Try to load images
+            loadImages();
+            
+            // Check for images every 5 seconds (in case they're added after page load)
+            setInterval(loadImages, 5000);
+        });
+        
+        // Fixed Testimonial Carousel
+        const carouselSlides = document.getElementById('carouselSlides');
+        const carouselDots = document.querySelectorAll('.carousel-dot');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        let currentSlide = 0;
+        const totalSlides = document.querySelectorAll('.carousel-slide').length;
+        let isTransitioning = false;
+        
+        // Function to update carousel position
+        function updateCarousel(instant = false) {
+            if (isTransitioning) return;
+            
+            if (!instant) {
+                isTransitioning = true;
+                carouselSlides.style.transition = 'transform 0.5s ease-in-out';
+            } else {
+                carouselSlides.style.transition = 'none';
+            }
+            
+            carouselSlides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update active dot
+            carouselDots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+            
+            if (!instant) {
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 500);
+            }
+        }
+        
+        // Next slide
+        nextBtn.addEventListener('click', () => {
+            if (isTransitioning) return;
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        });
+        
+        // Previous slide
+        prevBtn.addEventListener('click', () => {
+            if (isTransitioning) return;
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
+        
+        // Dot navigation
+        carouselDots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                if (isTransitioning) return;
+                currentSlide = parseInt(this.getAttribute('data-slide'));
+                updateCarousel();
+                
+                // Add color change animation
+                this.classList.add('color-change');
+                setTimeout(() => {
+                    this.classList.remove('color-change');
+                }, 500);
+            });
+        });
+        
+        // Auto-advance carousel
+        let carouselInterval = setInterval(() => {
+            if (isTransitioning) return;
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }, 5000);
+        
+        // Pause auto-advance on hover
+        const carouselWrapper = document.querySelector('.carousel-wrapper');
+        carouselWrapper.addEventListener('mouseenter', () => {
+            clearInterval(carouselInterval);
+        });
+        
+        carouselWrapper.addEventListener('mouseleave', () => {
+            carouselInterval = setInterval(() => {
+                if (isTransitioning) return;
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateCarousel();
+            }, 5000);
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const firstName = document.getElementById('firstName').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            
+            // In a real implementation, you would send this data to a server
+            // For this demo, we'll just show an alert
+            alert(`Thank you ${firstName}! We have received your inquiry about ${service}. We will contact you at ${email} shortly.`);
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Add color change animation to submit button
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            submitBtn.classList.add('color-change');
+            setTimeout(() => {
+                submitBtn.classList.remove('color-change');
+            }, 500);
+        });
+        
+        // Add color change animation to service cards on click
+        const serviceCards = document.querySelectorAll('.service-card');
+        
+        serviceCards.forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.add('color-change');
+                setTimeout(() => {
+                    this.classList.remove('color-change');
+                }, 500);
+            });
+        });
+        
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const scrollPos = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                if (scrollPos > section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+                    const id = section.getAttribute('id');
+                    navAnchors.forEach(a => {
+                        a.classList.remove('active');
+                        if (a.getAttribute('data-target') === id) {
+                            a.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Simple Google Maps simulation (in a real implementation, you would use the Google Maps API)
+        const mapElement = document.getElementById('map');
+        
+        // This would be replaced with actual Google Maps API code
+        // For demo purposes, we'll just add a placeholder
+        mapElement.innerHTML = `
+            <div style="width:100%; height:100%; background:#e2e8f0; display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--gray-color);">
+                <i class="fas fa-map-marker-alt" style="font-size:3rem; color:var(--primary-color); margin-bottom:15px;"></i>
+                <h3 style="color:var(--primary-dark); margin-bottom:10px;">Toronto Office Location</h3>
+                <p>123 Financial District, Toronto, ON M5X 1A1</p>
+                <p style="margin-top:20px; font-size:0.9rem;"><i class="fas fa-info-circle"></i> Google Maps would be integrated here</p>
+            </div>
+        `;
+        
+        // Initialize carousel position
+        updateCarousel(true);
+    </script>
+</body>
+</html>
